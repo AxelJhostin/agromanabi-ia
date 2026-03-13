@@ -23,14 +23,14 @@ export default function Home() {
   }
 
   return (
-    <main className="h-screen overflow-hidden bg-[#f3eedc] text-[#1f3e2c]">
-      <div className="flex h-full flex-col">
+    <main className="min-h-dvh bg-[#f3eedc] text-[#1f3e2c]">
+      <div className="flex min-h-dvh flex-col">
         <div className="sticky top-0 z-20 shrink-0">
           <Header />
         </div>
 
-        <div className="mx-auto flex w-full max-w-[1280px] flex-1 min-h-0 flex-col gap-4 p-4 md:p-6 lg:flex-row">
-          <section className="h-64 shrink-0 lg:h-full lg:w-[300px]">
+        <div className="mx-auto flex w-full max-w-[1280px] flex-1 min-h-0 flex-col gap-3 px-3 pb-3 pt-2 sm:px-4 sm:pb-4 sm:pt-3 md:gap-4 md:p-5 lg:flex-row lg:gap-6 lg:p-6">
+          <section className="shrink-0 lg:w-[300px] lg:min-h-0">
             <Sidebar
               onQuickActionSelect={handleQuickActionSelect}
               quickActionsDisabled={isChatLoading}

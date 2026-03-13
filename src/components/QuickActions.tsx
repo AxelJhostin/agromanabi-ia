@@ -85,22 +85,28 @@ function QuickActionIcon({ kind }: { kind: QuickActionKind }) {
 export default function QuickActions({ onSelect, disabled = false }: QuickActionsProps) {
   return (
     <div className="w-full">
-      <div className="space-y-2">
+      <div className="grid grid-cols-2 gap-2 lg:grid-cols-1">
         {QUICK_ACTIONS.map((action) => (
           <button
             key={action.label}
             type="button"
             onClick={() => onSelect(action.label)}
             disabled={disabled}
-            className="group flex w-full items-center gap-3 rounded-2xl border border-[#d7ceb6] bg-[#fffdf5] px-3 py-3 text-left transition hover:-translate-y-0.5 hover:bg-[#f1ead2] focus:outline-none focus:ring-2 focus:ring-[#3d7c48] focus:ring-offset-1 focus:ring-offset-[#f7f2df] disabled:cursor-not-allowed disabled:opacity-60"
+            className="group flex w-full items-center gap-2.5 rounded-2xl border border-[#d7ceb6] bg-[#fffdf5] px-2.5 py-2.5 text-left transition hover:-translate-y-0.5 hover:bg-[#f1ead2] focus:outline-none focus:ring-2 focus:ring-[#3d7c48] focus:ring-offset-1 focus:ring-offset-[#f7f2df] disabled:cursor-not-allowed disabled:opacity-60 sm:gap-3 sm:px-3 sm:py-3"
           >
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#c7bb9d] bg-[#ede4c9] text-[#2f6b3f] transition group-hover:bg-[#e2d8b8]">
-              <QuickActionIcon kind={action.kind} />
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#c7bb9d] bg-[#ede4c9] text-[#2f6b3f] transition group-hover:bg-[#e2d8b8] sm:h-9 sm:w-9">
+              <span className="scale-95 sm:scale-100">
+                <QuickActionIcon kind={action.kind} />
+              </span>
             </span>
 
             <span className="min-w-0">
-              <span className="block text-sm font-semibold text-[#294933]">{action.label}</span>
-              <span className="block text-xs text-[#5d7056]">{action.hint}</span>
+              <span className="block text-[13px] font-semibold leading-tight text-[#294933] sm:text-sm">
+                {action.label}
+              </span>
+              <span className="mt-0.5 hidden text-[11px] leading-snug text-[#5d7056] sm:block sm:text-xs">
+                {action.hint}
+              </span>
             </span>
           </button>
         ))}
